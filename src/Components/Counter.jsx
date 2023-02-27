@@ -4,16 +4,21 @@ class Counter extends React.Component{
 
     constructor(props){
         super(props);
+        this.handleAttack = this.handleAttack.bind(this);
+        this.handleDefense = this.handleDefense.bind(this);
         this.state = {
             count:0
         }
     }
 
     handleAttack(){
-        alert("Attack clicked");
+        /* this.state.count += 1;
+        * You can't directly modify the state!
+        * STATE IS IMMUTABLE !!! */
+       this.setState({count:this.state.count+1})
     }
     handleDefense(){
-        alert("Defense clicked");
+        this.setState({count:this.state.count-1})
     }
 
     render(){
