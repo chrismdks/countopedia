@@ -15,10 +15,23 @@ class Counter extends React.Component{
         /* this.state.count += 1;
         * You can't directly modify the state!
         * STATE IS IMMUTABLE !!! */
-       this.setState({count:this.state.count+1})
+        //Correct:
+        //this.setState({count:this.state.count+1})
+
+        //Even better way:
+        this.setState((previousState)=>{
+            return{
+                count:previousState.count+1
+            }
+        })
     }
     handleDefense(){
-        this.setState({count:this.state.count-1})
+        //this.setState({count:this.state.count-1})
+        this.setState((previousState)=>{
+            return{
+                count:previousState.count-1
+            }
+        })
     }
 
     render(){
