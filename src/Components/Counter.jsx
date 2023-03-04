@@ -1,4 +1,6 @@
 import React from "react";
+import attack from "../Images/attack.png";
+import defend from "../Images/defend.png";
 
 class Counter extends React.Component{
 
@@ -36,10 +38,30 @@ class Counter extends React.Component{
 
     render(){
         return(
-            <div className='row text-white'>
-                <h2>Counter: {this.state.count}</h2>
-                    <button onClick={this.handleAttack} style={{width:"200px"}}>+1</button>
-                    <button onClick={this.handleDefense} style={{width:"200px"}}>-1</button>
+            <div className='row text-white text-center'>
+                <h2>Game Score: {this.state.count}</h2>
+
+                <div className="col-6 col-md-3 offset-md-3">
+                    <img src={attack} alt="Attack" 
+                        onClick={this.handleAttack} 
+                        style={{
+                            width:"100%",
+                            cursor:"pointer",
+                            border:"1px solid green"
+                        }}
+                        className="p-4 rounded"/>
+                </div>
+                <div className="col-6 col-md-3 offset-md-3">
+                    <img src={defend} alt="Defend" 
+                        onClick={this.handleDefense} 
+                        style={{
+                            width:"100%",
+                            cursor:"pointer",
+                            border:"1px solid red"
+                        }}
+                        className="p-4 rounded"/>
+                </div>
+                
             </div>
         )
     }
