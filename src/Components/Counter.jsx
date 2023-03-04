@@ -7,21 +7,29 @@ class Counter extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            count:0
+            count:0,
+            lastPlay:"-",
+            gameStatus:"-"
         }
     }
 
     handleAttack = () => {
         this.setState((previousState)=>{
+            let newCount = previousState.count + Math.round(Math.random()*10);
             return{
-                count:previousState.count + Math.round(Math.random()*10)
+                count: newCount,
+                lastPlay: "Attack",
+                gameStatus: newCount>=10 ? "You Won!" : "-"
             }
         })
     }
     handleDefense = () => {
         this.setState((previousState)=>{
+            let newCount = previousState.count - Math.round(Math.random()*10);
             return{
-                count:previousState.count - Math.round(Math.random()*10)
+                count: newCount,
+                lastPlay: "Defense",
+                gameStatus: newCount<=-10? "You Lost!" : "-"
             }
         })
     }
@@ -34,7 +42,9 @@ class Counter extends React.Component{
     handleResetGame = () => {
         this.setState(()=>{
             return{
-                count:0
+                count:0,
+                lastPlay:"-",
+                gameStatus:"-"
             }
         })
     }
@@ -43,6 +53,8 @@ class Counter extends React.Component{
         return(
             <div className='row text-white text-center'>
                 <h2>Game Score: {this.state.count}</h2>
+                <p>Last Play: {this.state.lastPlay}</p>
+                <h3>Game Status: {this.state.gameStatus}</h3>
 
                 <div className="col-6 col-md-3 offset-md-3">
                     <img src={attack} alt="Attack" 
