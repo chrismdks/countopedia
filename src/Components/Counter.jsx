@@ -31,6 +31,13 @@ class Counter extends React.Component{
         if(playMode===0) this.handleAttack()
         else this.handleDefense()
     }
+    handleResetGame = () => {
+        this.setState(()=>{
+            return{
+                count:0
+            }
+        })
+    }
 
     render(){
         return(
@@ -61,6 +68,10 @@ class Counter extends React.Component{
                 <div className="col-12 col-md-4 offset-md-4">
                     <button onClick={this.handleRandomPlay} className="btn btn-secondary w-100 mt-2">
                         Random Play
+                    </button>
+                    <br/>
+                    <button onClick={this.handleResetGame} className="btn btn-warning w-100 mt-2">
+                        Reset
                     </button>
                 </div>
             </div>
