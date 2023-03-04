@@ -23,7 +23,7 @@ class Counter extends React.Component{
         //Even better way:
         this.setState((previousState)=>{
             return{
-                count:previousState.count+1
+                count:previousState.count + Math.round(Math.random()*10)
             }
         })
     }
@@ -31,7 +31,7 @@ class Counter extends React.Component{
         //this.setState({count:this.state.count-1})
         this.setState((previousState)=>{
             return{
-                count:previousState.count-1
+                count:previousState.count - Math.round(Math.random()*10)
             }
         })
     }
