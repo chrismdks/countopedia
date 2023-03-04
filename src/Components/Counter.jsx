@@ -6,29 +6,26 @@ class Counter extends React.Component{
 
     constructor(props){
         super(props);
-        this.handleAttack = this.handleAttack.bind(this);
-        this.handleDefense = this.handleDefense.bind(this);
-        this.handleRandomPlay = this.handleRandomPlay.bind(this);
         this.state = {
             count:0
         }
     }
 
-    handleAttack(){
+    handleAttack = () => {
         this.setState((previousState)=>{
             return{
                 count:previousState.count + Math.round(Math.random()*10)
             }
         })
     }
-    handleDefense(){
+    handleDefense = () => {
         this.setState((previousState)=>{
             return{
                 count:previousState.count - Math.round(Math.random()*10)
             }
         })
     }
-    handleRandomPlay(){
+    handleRandomPlay = () => {
         let playMode = Math.round(Math.random());
         // if Math.random() generates a number less than 0.5, then playMode=0. Else playMode=1
         if(playMode===0) this.handleAttack()
